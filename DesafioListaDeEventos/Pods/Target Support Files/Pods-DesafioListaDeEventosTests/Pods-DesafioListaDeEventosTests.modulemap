@@ -1,0 +1,6 @@
+framework module Pods_DesafioListaDeEventosTests {
+  umbrella header "Pods-DesafioListaDeEventosTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
