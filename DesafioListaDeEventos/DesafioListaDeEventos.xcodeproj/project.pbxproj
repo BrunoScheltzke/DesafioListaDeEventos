@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42D71E62219A190A00228E7F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D71E61219A190A00228E7F /* APIService.swift */; };
+		42D71E64219A1F8A00228E7F /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D71E63219A1F8A00228E7F /* Event.swift */; };
 		42D9AE33219A0F0700BC3946 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9AE32219A0F0700BC3946 /* AppDelegate.swift */; };
 		42D9AE35219A0F0700BC3946 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9AE34219A0F0700BC3946 /* ViewController.swift */; };
 		42D9AE38219A0F0700BC3946 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42D9AE36219A0F0700BC3946 /* Main.storyboard */; };
@@ -39,6 +41,8 @@
 /* Begin PBXFileReference section */
 		20BDEFC0395B772E81F85163 /* Pods_DesafioListaDeEventos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DesafioListaDeEventos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C31D238DF16AB5E64D8B4C7 /* Pods-DesafioListaDeEventosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioListaDeEventosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DesafioListaDeEventosTests/Pods-DesafioListaDeEventosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		42D71E61219A190A00228E7F /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		42D71E63219A1F8A00228E7F /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		42D9AE2F219A0F0700BC3946 /* DesafioListaDeEventos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesafioListaDeEventos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D9AE32219A0F0700BC3946 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42D9AE34219A0F0700BC3946 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 				42D9AE39219A0F0800BC3946 /* Assets.xcassets */,
 				42D9AE3B219A0F0800BC3946 /* LaunchScreen.storyboard */,
 				42D9AE3E219A0F0800BC3946 /* Info.plist */,
+				42D71E61219A190A00228E7F /* APIService.swift */,
+				42D71E63219A1F8A00228E7F /* Event.swift */,
 			);
 			path = DesafioListaDeEventos;
 			sourceTree = "<group>";
@@ -399,7 +405,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42D71E64219A1F8A00228E7F /* Event.swift in Sources */,
 				42D9AE35219A0F0700BC3946 /* ViewController.swift in Sources */,
+				42D71E62219A190A00228E7F /* APIService.swift in Sources */,
 				42D9AE33219A0F0700BC3946 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
