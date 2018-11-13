@@ -7,11 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		425A5C3D219AE2D00071D094 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425A5C3B219AE2D00071D094 /* EventListViewController.swift */; };
+		425A5C3E219AE2D00071D094 /* EventListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425A5C3C219AE2D00071D094 /* EventListViewController.xib */; };
+		425A5C43219AE33F0071D094 /* EventListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425A5C42219AE33F0071D094 /* EventListViewModel.swift */; };
+		425A5C46219AE68B0071D094 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425A5C45219AE68B0071D094 /* Result.swift */; };
+		425A5C49219AE7030071D094 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425A5C48219AE7030071D094 /* Reusable.swift */; };
+		425A5C4B219AE72B0071D094 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425A5C4A219AE72B0071D094 /* UITableView.swift */; };
+		425A5C4E219AE9320071D094 /* EventCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425A5C4D219AE9320071D094 /* EventCellViewModel.swift */; };
+		425A5C51219AE9AF0071D094 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425A5C4F219AE9AF0071D094 /* EventTableViewCell.swift */; };
+		425A5C52219AE9AF0071D094 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425A5C50219AE9AF0071D094 /* EventTableViewCell.xib */; };
 		42D71E62219A190A00228E7F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D71E61219A190A00228E7F /* APIService.swift */; };
 		42D71E64219A1F8A00228E7F /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D71E63219A1F8A00228E7F /* Event.swift */; };
 		42D9AE33219A0F0700BC3946 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9AE32219A0F0700BC3946 /* AppDelegate.swift */; };
-		42D9AE35219A0F0700BC3946 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9AE34219A0F0700BC3946 /* ViewController.swift */; };
-		42D9AE38219A0F0700BC3946 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42D9AE36219A0F0700BC3946 /* Main.storyboard */; };
 		42D9AE3A219A0F0800BC3946 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D9AE39219A0F0800BC3946 /* Assets.xcassets */; };
 		42D9AE3D219A0F0800BC3946 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42D9AE3B219A0F0800BC3946 /* LaunchScreen.storyboard */; };
 		42D9AE48219A0F0800BC3946 /* DesafioListaDeEventosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9AE47219A0F0800BC3946 /* DesafioListaDeEventosTests.swift */; };
@@ -41,12 +48,19 @@
 /* Begin PBXFileReference section */
 		20BDEFC0395B772E81F85163 /* Pods_DesafioListaDeEventos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DesafioListaDeEventos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C31D238DF16AB5E64D8B4C7 /* Pods-DesafioListaDeEventosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioListaDeEventosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DesafioListaDeEventosTests/Pods-DesafioListaDeEventosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		425A5C3B219AE2D00071D094 /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
+		425A5C3C219AE2D00071D094 /* EventListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventListViewController.xib; sourceTree = "<group>"; };
+		425A5C42219AE33F0071D094 /* EventListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewModel.swift; sourceTree = "<group>"; };
+		425A5C45219AE68B0071D094 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		425A5C48219AE7030071D094 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		425A5C4A219AE72B0071D094 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		425A5C4D219AE9320071D094 /* EventCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCellViewModel.swift; sourceTree = "<group>"; };
+		425A5C4F219AE9AF0071D094 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		425A5C50219AE9AF0071D094 /* EventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
 		42D71E61219A190A00228E7F /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		42D71E63219A1F8A00228E7F /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		42D9AE2F219A0F0700BC3946 /* DesafioListaDeEventos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesafioListaDeEventos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D9AE32219A0F0700BC3946 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		42D9AE34219A0F0700BC3946 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		42D9AE37219A0F0700BC3946 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		42D9AE39219A0F0800BC3946 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42D9AE3C219A0F0800BC3946 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42D9AE3E219A0F0800BC3946 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -93,10 +107,64 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		425A5C3F219AE31E0071D094 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				425A5C3B219AE2D00071D094 /* EventListViewController.swift */,
+				425A5C3C219AE2D00071D094 /* EventListViewController.xib */,
+				425A5C4F219AE9AF0071D094 /* EventTableViewCell.swift */,
+				425A5C50219AE9AF0071D094 /* EventTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		425A5C40219AE3270071D094 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				42D71E63219A1F8A00228E7F /* Event.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		425A5C41219AE32D0071D094 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				42D71E61219A190A00228E7F /* APIService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		425A5C44219AE34A0071D094 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				425A5C42219AE33F0071D094 /* EventListViewModel.swift */,
+				425A5C4D219AE9320071D094 /* EventCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		425A5C47219AE6C20071D094 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				425A5C45219AE68B0071D094 /* Result.swift */,
+				425A5C48219AE7030071D094 /* Reusable.swift */,
+			);
+			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		425A5C4C219AE72E0071D094 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				425A5C4A219AE72B0071D094 /* UITableView.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		42D9AE26219A0F0700BC3946 = {
 			isa = PBXGroup;
 			children = (
 				42D9AE31219A0F0700BC3946 /* DesafioListaDeEventos */,
+				425A5C47219AE6C20071D094 /* SupportingFiles */,
 				42D9AE46219A0F0800BC3946 /* DesafioListaDeEventosTests */,
 				42D9AE51219A0F0800BC3946 /* DesafioListaDeEventosUITests */,
 				42D9AE30219A0F0700BC3946 /* Products */,
@@ -119,13 +187,14 @@
 			isa = PBXGroup;
 			children = (
 				42D9AE32219A0F0700BC3946 /* AppDelegate.swift */,
-				42D9AE34219A0F0700BC3946 /* ViewController.swift */,
-				42D9AE36219A0F0700BC3946 /* Main.storyboard */,
 				42D9AE39219A0F0800BC3946 /* Assets.xcassets */,
 				42D9AE3B219A0F0800BC3946 /* LaunchScreen.storyboard */,
 				42D9AE3E219A0F0800BC3946 /* Info.plist */,
-				42D71E61219A190A00228E7F /* APIService.swift */,
-				42D71E63219A1F8A00228E7F /* Event.swift */,
+				425A5C41219AE32D0071D094 /* Service */,
+				425A5C40219AE3270071D094 /* Model */,
+				425A5C44219AE34A0071D094 /* ViewModel */,
+				425A5C3F219AE31E0071D094 /* View */,
+				425A5C4C219AE72E0071D094 /* Extension */,
 			);
 			path = DesafioListaDeEventos;
 			sourceTree = "<group>";
@@ -279,9 +348,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				425A5C52219AE9AF0071D094 /* EventTableViewCell.xib in Resources */,
+				425A5C3E219AE2D00071D094 /* EventListViewController.xib in Resources */,
 				42D9AE3D219A0F0800BC3946 /* LaunchScreen.storyboard in Resources */,
 				42D9AE3A219A0F0800BC3946 /* Assets.xcassets in Resources */,
-				42D9AE38219A0F0700BC3946 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,9 +404,11 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DesafioListaDeEventos/Pods-DesafioListaDeEventos-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -344,9 +416,11 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,10 +479,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				425A5C46219AE68B0071D094 /* Result.swift in Sources */,
 				42D71E64219A1F8A00228E7F /* Event.swift in Sources */,
-				42D9AE35219A0F0700BC3946 /* ViewController.swift in Sources */,
+				425A5C3D219AE2D00071D094 /* EventListViewController.swift in Sources */,
+				425A5C43219AE33F0071D094 /* EventListViewModel.swift in Sources */,
+				425A5C4E219AE9320071D094 /* EventCellViewModel.swift in Sources */,
 				42D71E62219A190A00228E7F /* APIService.swift in Sources */,
+				425A5C4B219AE72B0071D094 /* UITableView.swift in Sources */,
 				42D9AE33219A0F0700BC3946 /* AppDelegate.swift in Sources */,
+				425A5C51219AE9AF0071D094 /* EventTableViewCell.swift in Sources */,
+				425A5C49219AE7030071D094 /* Reusable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,14 +524,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		42D9AE36219A0F0700BC3946 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				42D9AE37219A0F0700BC3946 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		42D9AE3B219A0F0800BC3946 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

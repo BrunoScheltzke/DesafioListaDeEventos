@@ -10,6 +10,7 @@ target 'DesafioListaDeEventos' do
     pod 'RxCocoa',    '~> 4.0'
     pod 'Alamofire'
     pod 'RxAlamofire'
+    pod 'RxDataSources', '~> 3.0'
 
   target 'DesafioListaDeEventosTests' do
     inherit! :search_paths

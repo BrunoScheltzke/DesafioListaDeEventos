@@ -26,7 +26,7 @@ struct APIKeys {
     static let email = "email"
 }
 
-final class APIService {
+final class APIService: APIServiceProtocol {
     private let manager = SessionManager.default
     private var disposeBag = DisposeBag()
     
