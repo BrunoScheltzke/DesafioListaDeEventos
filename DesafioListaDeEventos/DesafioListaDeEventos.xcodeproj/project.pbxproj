@@ -16,6 +16,9 @@
 		425A5C4E219AE9320071D094 /* EventCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425A5C4D219AE9320071D094 /* EventCellViewModel.swift */; };
 		425A5C51219AE9AF0071D094 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425A5C4F219AE9AF0071D094 /* EventTableViewCell.swift */; };
 		425A5C52219AE9AF0071D094 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425A5C50219AE9AF0071D094 /* EventTableViewCell.xib */; };
+		425A5C55219B09360071D094 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425A5C53219B09360071D094 /* EventDetailViewController.swift */; };
+		425A5C56219B09360071D094 /* EventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425A5C54219B09360071D094 /* EventDetailViewController.xib */; };
+		425A5C58219B0D930071D094 /* EventDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425A5C57219B0D930071D094 /* EventDetailViewModel.swift */; };
 		42D71E62219A190A00228E7F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D71E61219A190A00228E7F /* APIService.swift */; };
 		42D71E64219A1F8A00228E7F /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D71E63219A1F8A00228E7F /* Event.swift */; };
 		42D9AE33219A0F0700BC3946 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9AE32219A0F0700BC3946 /* AppDelegate.swift */; };
@@ -57,6 +60,9 @@
 		425A5C4D219AE9320071D094 /* EventCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCellViewModel.swift; sourceTree = "<group>"; };
 		425A5C4F219AE9AF0071D094 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		425A5C50219AE9AF0071D094 /* EventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
+		425A5C53219B09360071D094 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		425A5C54219B09360071D094 /* EventDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventDetailViewController.xib; sourceTree = "<group>"; };
+		425A5C57219B0D930071D094 /* EventDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewModel.swift; sourceTree = "<group>"; };
 		42D71E61219A190A00228E7F /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		42D71E63219A1F8A00228E7F /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		42D9AE2F219A0F0700BC3946 /* DesafioListaDeEventos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesafioListaDeEventos.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +120,8 @@
 				425A5C3C219AE2D00071D094 /* EventListViewController.xib */,
 				425A5C4F219AE9AF0071D094 /* EventTableViewCell.swift */,
 				425A5C50219AE9AF0071D094 /* EventTableViewCell.xib */,
+				425A5C53219B09360071D094 /* EventDetailViewController.swift */,
+				425A5C54219B09360071D094 /* EventDetailViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -139,6 +147,7 @@
 			children = (
 				425A5C42219AE33F0071D094 /* EventListViewModel.swift */,
 				425A5C4D219AE9320071D094 /* EventCellViewModel.swift */,
+				425A5C57219B0D930071D094 /* EventDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -348,6 +357,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				425A5C56219B09360071D094 /* EventDetailViewController.xib in Resources */,
 				425A5C52219AE9AF0071D094 /* EventTableViewCell.xib in Resources */,
 				425A5C3E219AE2D00071D094 /* EventListViewController.xib in Resources */,
 				42D9AE3D219A0F0800BC3946 /* LaunchScreen.storyboard in Resources */,
@@ -481,6 +491,7 @@
 			files = (
 				425A5C46219AE68B0071D094 /* Result.swift in Sources */,
 				42D71E64219A1F8A00228E7F /* Event.swift in Sources */,
+				425A5C58219B0D930071D094 /* EventDetailViewModel.swift in Sources */,
 				425A5C3D219AE2D00071D094 /* EventListViewController.swift in Sources */,
 				425A5C43219AE33F0071D094 /* EventListViewModel.swift in Sources */,
 				425A5C4E219AE9320071D094 /* EventCellViewModel.swift in Sources */,
@@ -488,6 +499,7 @@
 				425A5C4B219AE72B0071D094 /* UITableView.swift in Sources */,
 				42D9AE33219A0F0700BC3946 /* AppDelegate.swift in Sources */,
 				425A5C51219AE9AF0071D094 /* EventTableViewCell.swift in Sources */,
+				425A5C55219B09360071D094 /* EventDetailViewController.swift in Sources */,
 				425A5C49219AE7030071D094 /* Reusable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
