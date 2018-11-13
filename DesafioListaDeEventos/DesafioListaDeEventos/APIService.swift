@@ -11,25 +11,50 @@ import RxSwift
 import RxAlamofire
 import Alamofire
 
+protocol APIServiceProtocol {
+    func fetchEvents() -> Observable<Result<[Event]>>
+    func checkIn(_ event: Event, name: String, email: String) -> Observable<Result<Void>>
+}
+
+private let basePath = "http://5b840ba5db24a100142dcd8c.mockapi.io/api"
+private let eventsPath = basePath + "/events"
+private let checkInPath = basePath + "/checkin"
+
+struct APIKeys {
+    static let eventId = "eventId"
+    static let name = "name"
+    static let email = "email"
+}
+
 final class APIService {
     private let manager = SessionManager.default
     private var disposeBag = DisposeBag()
-    private let eventsPath = "http://5b840ba5db24a100142dcd8c.mockapi.io/api/events"
     
-    func fetchEvents() {
-        manager.rx
-            .responseData(.get, eventsPath)
-            .map { result -> [Event] in
-                let (response, data) = result
+    func fetchEvents() -> Observable<Result<[Event]>> {
+        return manager.rx.request(.get, eventsPath)
+            .validate()
+            .data()
+            .observeOn(MainScheduler.instance)
+            .map { data -> Result<[Event]> in
                 do {
                     let events = try JSONDecoder().decode([Event].self, from: data)
-                    return events
+                    return .success(events)
                 } catch {
-                    print(error)
+                    return .failure(error)
                 }
-                return []
-            }.subscribe(onNext: {
-                print($0)
-            })
+        }
+    }
+    
+    func checkIn(_ event: Event, name: String, email: String) -> Observable<Result<Void>> {
+        let params = [
+            APIKeys.eventId: event.id,
+            APIKeys.name: name,
+            APIKeys.email: email
+        ]
+        
+        return manager.rx.request(.post, "", parameters: params, encoding: JSONEncoding.default, headers: nil)
+                .validate()
+                .observeOn(MainScheduler.instance)
+                .map { _ in .success(()) }
     }
 }
