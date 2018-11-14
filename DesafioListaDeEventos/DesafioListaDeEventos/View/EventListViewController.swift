@@ -17,19 +17,25 @@ class EventListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = EventListViewModel(APIService())
         setupTableView()
-        bindToViewModel()
     }
     
     func setupTableView() {
         tableView.register(type: EventTableViewCell.self)
     }
     
-    func bindToViewModel() {
-        viewModel.events.bind(to: tableView.rx.items(cellIdentifier: EventTableViewCell.reuseIdentifier)) { _, viewModel, cell in
+    func bind(to viewModel: EventListViewModel) {
+        loadViewIfNeeded()
+        self.viewModel = viewModel
+        viewModel.eventsViewModel.bind(to: tableView.rx.items(cellIdentifier: EventTableViewCell.reuseIdentifier)) { _, viewModel, cell in
             guard let cell = cell as? EventTableViewCell else { return }
             cell.bindTo(viewModel)
         }.disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected
+            .asObservable()
+            .map { $0.row }
+            .bind(to: viewModel.selectRowAt)
+            .disposed(by: disposeBag)
     }
 }

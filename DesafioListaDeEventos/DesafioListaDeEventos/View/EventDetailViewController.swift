@@ -26,13 +26,15 @@ class EventDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        bindToViewModel()
     }
     
     func setupTableView() {
         tableView.register(type: EventTableViewCell.self)
         tableView.contentInset = UIEdgeInsets(top: headerViewDefaultHeight, left: 0, bottom: 0, right: 0)
-        
+    }
+    
+    func bind(to viewModel: EventDetailViewModel) {
+        loadViewIfNeeded()
         let dataSource = RxTableViewSectionedReloadDataSource<SectionOfDescription>(
             configureCell: { dataSource, tableView, indexPath, item in
                 let cell: EventTableViewCell = tableView.dequeueReusableCell(for: indexPath)
@@ -47,10 +49,6 @@ class EventDetailViewController: UIViewController {
         sections
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
-    }
-    
-    func bindToViewModel() {
-        
     }
 }
 
