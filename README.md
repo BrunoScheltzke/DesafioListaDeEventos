@@ -13,6 +13,7 @@
 - [x] Listar eventos da API
 - [x] Mostrar detalhes do evento
 - [x] Listar pessoas
+- [x] Paralax animation
 - [ ] Mostrar mapa do local
 - [ ] Mostrar data do evento
 - [ ] Check In
