@@ -23,9 +23,13 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var headerViewHeightConstraint: NSLayoutConstraint!
     
     var viewModel: EventDetailViewModel!
-    //var descriptionDataSource: RxTableViewSectionedReloadDataSource<SectionOfDescription>
     
     private let disposeBag = DisposeBag()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +40,7 @@ class EventDetailViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
         
-        tableView.register(type: EventTableViewCell.self)
+        tableView.register(type: EventDetailTableViewCell.self)
         tableView.register(type: UserCollectionTableViewCell.self)
         tableView.contentInset = UIEdgeInsets(top: headerViewDefaultHeight, left: 0, bottom: 0, right: 0)
         
@@ -55,8 +59,8 @@ class EventDetailViewController: UIViewController {
             configureCell: { dataSource, tableView, indexPath, item in
                 switch item {
                 case let .eventDescription(eventDescription):
-                    let cell: EventTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-                    cell.textLabel?.text = eventDescription.itemTitle + " " + eventDescription.itemDescription
+                    let cell: EventDetailTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+                    cell.textLabel?.text = eventDescription.itemDescription
                     return cell
                     
                 case let .userCollection(userCollectionVM):

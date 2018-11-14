@@ -20,6 +20,7 @@ class AppCoordinator {
         self.window = window
         self.apiService = apiService
         navigationController = UINavigationController()
+        navigationController.navigationBar.prefersLargeTitles = true
     }
     
     func start() {
