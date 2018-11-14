@@ -10,13 +10,17 @@ import UIKit
 import RxSwift
 import RxDataSources
 
+// The variant sizes the header view can be
+private let headerViewDefaultHeight: CGFloat = 300
+private let headerViewMinimunHeight: CGFloat = 100
+private let headerViewMaxHeight: CGFloat = 400
+
 class EventDetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var headerImageView: UIImageView!
     
     @IBOutlet weak var headerViewHeightConstraint: NSLayoutConstraint!
-    private let headerViewDefaultHeight: CGFloat = 210
     
     var viewModel: EventDetailViewModel!
     //var descriptionDataSource: RxTableViewSectionedReloadDataSource<SectionOfDescription>
@@ -31,6 +35,14 @@ class EventDetailViewController: UIViewController {
     func setupTableView() {
         tableView.register(type: EventTableViewCell.self)
         tableView.contentInset = UIEdgeInsets(top: headerViewDefaultHeight, left: 0, bottom: 0, right: 0)
+        
+        tableView.rx
+            .contentOffset.asObservable()
+            .map { $0.y }
+            .subscribe(onNext: { [unowned self] currentY in
+                let y = headerViewDefaultHeight - (currentY + headerViewDefaultHeight)
+                self.headerViewHeightConstraint.constant = min(max(y, headerViewMinimunHeight), headerViewMaxHeight)
+            }).disposed(by: disposeBag)
     }
     
     func bind(to viewModel: EventDetailViewModel) {
@@ -48,6 +60,10 @@ class EventDetailViewController: UIViewController {
         
         sections
             .bind(to: tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+        
+        viewModel.eventImage
+            .bind(to: headerImageView.rx.image)
             .disposed(by: disposeBag)
     }
 }

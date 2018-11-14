@@ -16,21 +16,24 @@ struct EventDescription {
 
 final class EventDetailViewModel {
     let eventDescription: Observable<[EventDescription]>
+    var eventImage: Observable<UIImage>
     
     private let apiService: APIServiceProtocol
     private let event: Observable<Event>
     
-    init(_ apiService: APIServiceProtocol, event: Observable<Event>) {
+    init(_ apiService: APIServiceProtocol, event: Event) {
         self.apiService = apiService
         
         //fetch by id instead
-        self.event = event
-        eventDescription = event.map {
+        self.event = Observable.just(event)
+        eventDescription = self.event.map {
             [
                 EventDescription(itemTitle: "Title", itemDescription: $0.title),
                 EventDescription(itemTitle: "Price", itemDescription: $0.price.toBrazilianCurrency() ?? "\($0.price)"),
                 EventDescription(itemTitle: "Description", itemDescription: $0.description)
             ]
         }
+        
+        eventImage = apiService.fetchImage(of: event)
     }
 }

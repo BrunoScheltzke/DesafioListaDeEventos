@@ -34,7 +34,7 @@ class AppCoordinator {
         viewModel.askToPresent
             .subscribe(onNext: { [unowned self] event in
                 let eventDetailVC = EventDetailViewController()
-                let eventDetailVM = EventDetailViewModel(self.apiService, event: Observable.just(event))
+                let eventDetailVM = EventDetailViewModel(self.apiService, event: event)
                 eventDetailVC.bind(to: eventDetailVM)
                 self.navigationController.pushViewController(eventDetailVC, animated: true)
             }).disposed(by: disposeBag)
