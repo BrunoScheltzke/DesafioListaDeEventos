@@ -22,3 +22,5 @@
 - [ ] Tratamento de erros
 - [ ] Layout final da tela de eventos
 - [ ] Layout final da tela de detalhes do evento
+- [ ] Improve user experience by adding loading view on user images
+- [ ] Improve user experience by adding loading view on event list
