@@ -33,6 +33,9 @@ class EventDetailViewController: UIViewController {
     }
     
     func setupTableView() {
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 100
+        
         tableView.register(type: EventTableViewCell.self)
         tableView.register(type: UserCollectionTableViewCell.self)
         tableView.contentInset = UIEdgeInsets(top: headerViewDefaultHeight, left: 0, bottom: 0, right: 0)
