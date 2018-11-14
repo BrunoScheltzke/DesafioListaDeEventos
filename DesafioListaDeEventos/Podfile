@@ -11,6 +11,7 @@ target 'DesafioListaDeEventos' do
     pod 'Alamofire'
     pod 'RxAlamofire'
     pod 'RxDataSources', '~> 3.0'
+    pod 'RxBlocking'
 
   target 'DesafioListaDeEventosTests' do
     inherit! :search_paths
