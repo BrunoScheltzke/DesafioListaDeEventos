@@ -17,12 +17,12 @@ private let headerViewMaxHeight: CGFloat = 400
 
 class EventDetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var checkInButton: UIButton!
     
     @IBOutlet weak var headerImageView: UIImageView!
     
     @IBOutlet weak var headerViewHeightConstraint: NSLayoutConstraint!
     
-    var viewModel: EventDetailViewModel!
     //var descriptionDataSource: RxTableViewSectionedReloadDataSource<SectionOfDescription>
     
     private let disposeBag = DisposeBag()
@@ -78,6 +78,18 @@ class EventDetailViewController: UIViewController {
         viewModel.eventImage
             .bind(to: headerImageView.rx.image)
             .disposed(by: disposeBag)
+        
+        checkInButton.rx.tap
+            .asObservable()
+            .subscribe(onNext: { _ in
+                    viewModel.checkInEvent.onNext(())
+                })
+            .disposed(by: disposeBag)
+        
+//        checkInButton.rx.tap
+//            .asObservable()
+//            .bind(to: viewModel.checkInEvent)
+//            .disposed(by: disposeBag)
     }
 }
 

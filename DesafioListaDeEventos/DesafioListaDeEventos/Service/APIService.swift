@@ -13,14 +13,14 @@ import Alamofire
 
 protocol APIServiceProtocol {
     func fetchEvents() -> Observable<Result<[Event]>>
-    func checkIn(_ event: Event, name: String, email: String) -> Observable<Result<Void>>
+    @discardableResult func checkIn(_ event: Event, name: String, email: String) -> Observable<Result<Void>>
     func fetchImage(of event: Event) -> Observable<UIImage>
     func fetchImage(of user: User) -> Observable<UIImage>
 }
 
 private let basePath = "http://5b840ba5db24a100142dcd8c.mockapi.io/api"
 private let eventsPath = basePath + "/events"
-private let checkInPath = basePath + "/checkin"
+private let checkInPath = basePath + "/checkin/"
 
 struct APIKeys {
     static let eventId = "eventId"
@@ -47,15 +47,16 @@ final class APIService: APIServiceProtocol {
         }
     }
     
-    func checkIn(_ event: Event, name: String, email: String) -> Observable<Result<Void>> {
+    @discardableResult func checkIn(_ event: Event, name: String, email: String) -> Observable<Result<Void>> {
         let params = [
             APIKeys.eventId: event.id,
             APIKeys.name: name,
             APIKeys.email: email
         ]
         
-        return manager.rx.request(.post, "", parameters: params, encoding: JSONEncoding.default, headers: nil)
-                .validate()
+        let path = checkInPath + event.id
+        
+        return manager.rx.request(.post, path, parameters: params, encoding: JSONEncoding.default, headers: nil)
                 .observeOn(MainScheduler.instance)
                 .map { _ in .success(()) }
     }

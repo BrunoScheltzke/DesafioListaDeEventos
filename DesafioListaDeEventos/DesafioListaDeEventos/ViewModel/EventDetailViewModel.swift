@@ -18,24 +18,37 @@ final class EventDetailViewModel {
     let eventDescription: Observable<[EventDescription]>
     let eventImage: Observable<UIImage>
     let userCollectionViewModel: Observable<UserCollectionViewModel>
+    let checkInEvent: PublishSubject<Void> = PublishSubject()
+    let checkInButtonIsHidden: Observable<Bool>
     
     private let apiService: APIServiceProtocol
-    private let event: Observable<Event>
+    private let event: Event
+    
+    private let disposeBag = DisposeBag()
     
     init(_ apiService: APIServiceProtocol, event: Event) {
         self.apiService = apiService
         
         //fetch by id instead
-        self.event = Observable.just(event)
-        eventDescription = self.event.map {
+        self.event = event
+        eventDescription = Observable.just(
             [
-                EventDescription(itemTitle: "Title", itemDescription: $0.title),
-                EventDescription(itemTitle: "Price", itemDescription: $0.price.toBrazilianCurrency() ?? "\($0.price)"),
-                EventDescription(itemTitle: "Description", itemDescription: $0.description)
+                EventDescription(itemTitle: "Title", itemDescription: event.title),
+                EventDescription(itemTitle: "Price", itemDescription: event.price.toBrazilianCurrency() ?? "\(event.price)"),
+                EventDescription(itemTitle: "Description", itemDescription: event.description)
             ]
-        }
+        )
         
         eventImage = apiService.fetchImage(of: event)
-        userCollectionViewModel = self.event.map { UserCollectionViewModel(apiService: apiService, users: $0.people) }
+        userCollectionViewModel = Observable.just(UserCollectionViewModel(apiService: apiService, users: event.people))
+        
+        // needs to modify this to check if user has already checked in the event
+        checkInButtonIsHidden = Observable.just(true)
+        
+        checkInEvent
+            .subscribe(onNext: { [unowned self] _ in
+                self.apiService.checkIn(self.event, name: "Alfredo", email: "alfredo@email.com")
+            })
+            .disposed(by: disposeBag)
     }
 }
