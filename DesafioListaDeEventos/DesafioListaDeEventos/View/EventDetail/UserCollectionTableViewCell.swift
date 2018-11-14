@@ -12,7 +12,7 @@ import RxDataSources
 
 class UserCollectionTableViewCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
-    private let disposeBag = DisposeBag()
+    private var disposeBag = DisposeBag()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,10 +24,16 @@ class UserCollectionTableViewCell: UITableViewCell {
     }
     
     func bind(to viewModel: UserCollectionViewModel) {
+        collectionView.dataSource = nil
         viewModel.userVMs
             .bind(to: collectionView.rx.items(cellIdentifier: UserCollectionViewCell.reuseIdentifier)) { _, vm, cell in
                 guard let cell = cell as? UserCollectionViewCell else { return }
                 cell.bind(to: vm)
         }.disposed(by: disposeBag)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
     }
 }

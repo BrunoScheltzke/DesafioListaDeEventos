@@ -14,7 +14,8 @@ class EventTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        textLabel?.numberOfLines = 0
+        textLabel?.lineBreakMode = .byWordWrapping
     }
     
     func bindTo(_ viewModel: EventCellViewModel) {

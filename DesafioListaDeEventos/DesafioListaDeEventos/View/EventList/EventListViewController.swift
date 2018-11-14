@@ -21,6 +21,8 @@ class EventListViewController: UIViewController {
     }
     
     func setupTableView() {
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 200
         tableView.register(type: EventTableViewCell.self)
     }
     

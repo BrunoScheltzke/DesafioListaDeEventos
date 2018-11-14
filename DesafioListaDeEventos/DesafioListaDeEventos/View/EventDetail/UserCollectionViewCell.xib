@@ -25,7 +25,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="43F-7W-wFW">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="43F-7W-wFW">
                         <rect key="frame" x="24.5" y="0.0" width="98" height="98"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="43F-7W-wFW" secondAttribute="height" multiplier="1:1" id="Mzf-Z2-swZ"/>
@@ -50,4 +50,7 @@
             <point key="canvasLocation" x="215.19999999999999" y="195.20239880059972"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="userPlaceholder" width="600" height="600"/>
+    </resources>
 </document>

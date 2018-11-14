@@ -66,13 +66,17 @@ class EventDetailViewController: UIViewController {
                 }
         })
         
+        dataSource.titleForHeaderInSection = { dataSource, index in
+            return dataSource.sectionModels[index].header
+        }
+        
         let descriptionSection = viewModel.eventDescription.map { events in
             return events.map { TableItem.eventDescription($0) }
             }.map { SectionOfDescription(header: "Detalhes do evento", items: $0) }
         
         let userImagesSection = viewModel.userCollectionViewModel
             .map { [TableItem.userCollection($0)] }
-            .map { SectionOfDescription(header: "People", items: $0) }
+            .map { SectionOfDescription(header: "Pessoas", items: $0) }
         
         Observable.zip(descriptionSection, userImagesSection) { [$0, $1] }
             .bind(to: tableView.rx.items(dataSource: dataSource))

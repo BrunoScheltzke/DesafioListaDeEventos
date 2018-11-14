@@ -13,7 +13,7 @@ class UserCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     
-    private let disposeBag = DisposeBag()
+    private var disposeBag = DisposeBag()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,5 +32,10 @@ class UserCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         userImageView.layer.cornerRadius = userImageView.frame.height/2
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
     }
 }
