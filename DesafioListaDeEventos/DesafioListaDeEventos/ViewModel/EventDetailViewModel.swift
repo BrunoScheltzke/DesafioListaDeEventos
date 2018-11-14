@@ -16,7 +16,8 @@ struct EventDescription {
 
 final class EventDetailViewModel {
     let eventDescription: Observable<[EventDescription]>
-    var eventImage: Observable<UIImage>
+    let eventImage: Observable<UIImage>
+    let userCollectionViewModel: Observable<UserCollectionViewModel>
     
     private let apiService: APIServiceProtocol
     private let event: Observable<Event>
@@ -35,5 +36,6 @@ final class EventDetailViewModel {
         }
         
         eventImage = apiService.fetchImage(of: event)
+        userCollectionViewModel = self.event.map { UserCollectionViewModel(apiService: apiService, users: $0.people) }
     }
 }

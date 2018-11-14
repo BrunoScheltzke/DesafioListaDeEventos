@@ -34,6 +34,7 @@ class EventDetailViewController: UIViewController {
     
     func setupTableView() {
         tableView.register(type: EventTableViewCell.self)
+        tableView.register(type: UserCollectionTableViewCell.self)
         tableView.contentInset = UIEdgeInsets(top: headerViewDefaultHeight, left: 0, bottom: 0, right: 0)
         
         tableView.rx
@@ -49,16 +50,28 @@ class EventDetailViewController: UIViewController {
         loadViewIfNeeded()
         let dataSource = RxTableViewSectionedReloadDataSource<SectionOfDescription>(
             configureCell: { dataSource, tableView, indexPath, item in
-                let cell: EventTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-                cell.textLabel?.text = item.itemTitle + " " + item.itemDescription
-                return cell
+                switch item {
+                case let .eventDescription(eventDescription):
+                    let cell: EventTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+                    cell.textLabel?.text = eventDescription.itemTitle + " " + eventDescription.itemDescription
+                    return cell
+                    
+                case let .userCollection(userCollectionVM):
+                    let cell: UserCollectionTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+                    cell.bind(to: userCollectionVM)
+                    return cell
+                }
         })
         
-        let sections = viewModel.eventDescription.map {
-            [SectionOfDescription(header: "Detalhes do evento", items: $0)]
-        }
+        let descriptionSection = viewModel.eventDescription.map { events in
+            return events.map { TableItem.eventDescription($0) }
+            }.map { SectionOfDescription(header: "Detalhes do evento", items: $0) }
         
-        sections
+        let userImagesSection = viewModel.userCollectionViewModel
+            .map { [TableItem.userCollection($0)] }
+            .map { SectionOfDescription(header: "People", items: $0) }
+        
+        Observable.zip(descriptionSection, userImagesSection) { [$0, $1] }
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
@@ -68,10 +81,9 @@ class EventDetailViewController: UIViewController {
     }
 }
 
-// MARK: Table View
-extension EventDetailViewController {
-    
-    
+enum TableItem {
+    case eventDescription(EventDescription)
+    case userCollection(UserCollectionViewModel)
 }
 
 struct SectionOfDescription {
@@ -80,7 +92,7 @@ struct SectionOfDescription {
 }
 
 extension SectionOfDescription: SectionModelType {
-    typealias Item = EventDescription
+    typealias Item = TableItem
     
     init(original: SectionOfDescription, items: [Item]) {
         self = original

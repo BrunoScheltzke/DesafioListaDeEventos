@@ -14,4 +14,5 @@ struct Event: Decodable {
     let price: Double
     let image: String
     let description: String
+    let people: [User]
 }

@@ -15,6 +15,7 @@ protocol APIServiceProtocol {
     func fetchEvents() -> Observable<Result<[Event]>>
     func checkIn(_ event: Event, name: String, email: String) -> Observable<Result<Void>>
     func fetchImage(of event: Event) -> Observable<UIImage>
+    func fetchImage(of user: User) -> Observable<UIImage>
 }
 
 private let basePath = "http://5b840ba5db24a100142dcd8c.mockapi.io/api"
@@ -60,12 +61,20 @@ final class APIService: APIServiceProtocol {
     }
     
     func fetchImage(of event: Event) -> Observable<UIImage> {
-        return manager.rx.request(.get, event.image)
+        return fetchImage(path: event.image)
+            .map { $0 ?? #imageLiteral(resourceName: "eventPlaceholder") }
+    }
+    
+    func fetchImage(of user: User) -> Observable<UIImage> {
+        return fetchImage(path: user.picture)
+            .map { $0 ?? #imageLiteral(resourceName: "userPlaceholder") }
+    }
+    
+    private func fetchImage(path: String) -> Observable<UIImage?> {
+        return manager.rx.request(.get, path)
             .validate()
             .data()
             .observeOn(MainScheduler.instance)
-            .map { data -> UIImage in
-                return UIImage(data: data) ?? #imageLiteral(resourceName: "eventPlaceholder")
-        }
+            .map { UIImage(data: $0) }
     }
 }

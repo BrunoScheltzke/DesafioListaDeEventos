@@ -19,6 +19,13 @@
 		425A5C55219B09360071D094 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425A5C53219B09360071D094 /* EventDetailViewController.swift */; };
 		425A5C56219B09360071D094 /* EventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425A5C54219B09360071D094 /* EventDetailViewController.xib */; };
 		425A5C58219B0D930071D094 /* EventDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425A5C57219B0D930071D094 /* EventDetailViewModel.swift */; };
+		4269CA2C219C459A00F6C946 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4269CA2B219C459A00F6C946 /* UserViewModel.swift */; };
+		4269CA2E219C462F00F6C946 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4269CA2D219C462F00F6C946 /* User.swift */; };
+		4269CA31219C49AE00F6C946 /* UserCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4269CA2F219C49AE00F6C946 /* UserCollectionTableViewCell.swift */; };
+		4269CA32219C49AE00F6C946 /* UserCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4269CA30219C49AE00F6C946 /* UserCollectionTableViewCell.xib */; };
+		4269CA35219C49F400F6C946 /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4269CA33219C49F400F6C946 /* UserCollectionViewCell.swift */; };
+		4269CA36219C49F400F6C946 /* UserCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4269CA34219C49F400F6C946 /* UserCollectionViewCell.xib */; };
+		4269CA38219C4A3E00F6C946 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4269CA37219C4A3E00F6C946 /* UICollectionView.swift */; };
 		4293F9BB219C2E7F00F043E5 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4293F9BA219C2E7F00F043E5 /* Double.swift */; };
 		4293F9C0219C349000F043E5 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4293F9BF219C349000F043E5 /* AppCoordinator.swift */; };
 		42D71E62219A190A00228E7F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D71E61219A190A00228E7F /* APIService.swift */; };
@@ -65,6 +72,13 @@
 		425A5C53219B09360071D094 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		425A5C54219B09360071D094 /* EventDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventDetailViewController.xib; sourceTree = "<group>"; };
 		425A5C57219B0D930071D094 /* EventDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewModel.swift; sourceTree = "<group>"; };
+		4269CA2B219C459A00F6C946 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		4269CA2D219C462F00F6C946 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4269CA2F219C49AE00F6C946 /* UserCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionTableViewCell.swift; sourceTree = "<group>"; };
+		4269CA30219C49AE00F6C946 /* UserCollectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCollectionTableViewCell.xib; sourceTree = "<group>"; };
+		4269CA33219C49F400F6C946 /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
+		4269CA34219C49F400F6C946 /* UserCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCollectionViewCell.xib; sourceTree = "<group>"; };
+		4269CA37219C4A3E00F6C946 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		4293F9BA219C2E7F00F043E5 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		4293F9BF219C349000F043E5 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		42D71E61219A190A00228E7F /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
@@ -126,6 +140,10 @@
 				425A5C50219AE9AF0071D094 /* EventTableViewCell.xib */,
 				425A5C53219B09360071D094 /* EventDetailViewController.swift */,
 				425A5C54219B09360071D094 /* EventDetailViewController.xib */,
+				4269CA2F219C49AE00F6C946 /* UserCollectionTableViewCell.swift */,
+				4269CA30219C49AE00F6C946 /* UserCollectionTableViewCell.xib */,
+				4269CA33219C49F400F6C946 /* UserCollectionViewCell.swift */,
+				4269CA34219C49F400F6C946 /* UserCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -134,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				42D71E63219A1F8A00228E7F /* Event.swift */,
+				4269CA2D219C462F00F6C946 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -152,6 +171,7 @@
 				425A5C42219AE33F0071D094 /* EventListViewModel.swift */,
 				425A5C4D219AE9320071D094 /* EventCellViewModel.swift */,
 				425A5C57219B0D930071D094 /* EventDetailViewModel.swift */,
+				4269CA2B219C459A00F6C946 /* UserViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -170,6 +190,7 @@
 			children = (
 				425A5C4A219AE72B0071D094 /* UITableView.swift */,
 				4293F9BA219C2E7F00F043E5 /* Double.swift */,
+				4269CA37219C4A3E00F6C946 /* UICollectionView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -373,6 +394,8 @@
 			files = (
 				425A5C56219B09360071D094 /* EventDetailViewController.xib in Resources */,
 				425A5C52219AE9AF0071D094 /* EventTableViewCell.xib in Resources */,
+				4269CA36219C49F400F6C946 /* UserCollectionViewCell.xib in Resources */,
+				4269CA32219C49AE00F6C946 /* UserCollectionTableViewCell.xib in Resources */,
 				425A5C3E219AE2D00071D094 /* EventListViewController.xib in Resources */,
 				42D9AE3D219A0F0800BC3946 /* LaunchScreen.storyboard in Resources */,
 				42D9AE3A219A0F0800BC3946 /* Assets.xcassets in Resources */,
@@ -506,7 +529,9 @@
 				425A5C46219AE68B0071D094 /* Result.swift in Sources */,
 				42D71E64219A1F8A00228E7F /* Event.swift in Sources */,
 				425A5C58219B0D930071D094 /* EventDetailViewModel.swift in Sources */,
+				4269CA31219C49AE00F6C946 /* UserCollectionTableViewCell.swift in Sources */,
 				425A5C3D219AE2D00071D094 /* EventListViewController.swift in Sources */,
+				4269CA2E219C462F00F6C946 /* User.swift in Sources */,
 				4293F9BB219C2E7F00F043E5 /* Double.swift in Sources */,
 				425A5C43219AE33F0071D094 /* EventListViewModel.swift in Sources */,
 				4293F9C0219C349000F043E5 /* AppCoordinator.swift in Sources */,
@@ -516,7 +541,10 @@
 				42D9AE33219A0F0700BC3946 /* AppDelegate.swift in Sources */,
 				425A5C51219AE9AF0071D094 /* EventTableViewCell.swift in Sources */,
 				425A5C55219B09360071D094 /* EventDetailViewController.swift in Sources */,
+				4269CA35219C49F400F6C946 /* UserCollectionViewCell.swift in Sources */,
+				4269CA2C219C459A00F6C946 /* UserViewModel.swift in Sources */,
 				425A5C49219AE7030071D094 /* Reusable.swift in Sources */,
+				4269CA38219C4A3E00F6C946 /* UICollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
