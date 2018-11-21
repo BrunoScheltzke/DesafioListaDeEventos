@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EventDetailViewController" customModule="DesafioListaDeEventos" customModuleProvider="target">
             <connections>
+                <outlet property="checkInButton" destination="r1g-be-mcP" id="Qzf-Gj-oDy"/>
                 <outlet property="headerImageView" destination="CeB-yt-XOa" id="LUA-Gf-1mW"/>
                 <outlet property="headerViewHeightConstraint" destination="sqq-6O-NhA" id="sRV-sk-eaY"/>
                 <outlet property="tableView" destination="5Bi-wn-Q9V" id="3oQ-56-wfP"/>
@@ -24,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="5Bi-wn-Q9V">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="592"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 </tableView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CeB-yt-XOa">
@@ -33,20 +34,40 @@
                         <constraint firstAttribute="height" constant="210" id="sqq-6O-NhA"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1g-be-mcP">
+                    <rect key="frame" x="37.5" y="602" width="300" height="55"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="55" id="l2S-G0-jWs"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                    <state key="normal" title="Check In">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="r1g-be-mcP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4AV-yJ-Sid"/>
                 <constraint firstItem="CeB-yt-XOa" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7df-Vp-d6M"/>
+                <constraint firstItem="r1g-be-mcP" firstAttribute="top" secondItem="5Bi-wn-Q9V" secondAttribute="bottom" constant="10" id="BJR-HX-vA2"/>
                 <constraint firstItem="5Bi-wn-Q9V" firstAttribute="top" secondItem="CeB-yt-XOa" secondAttribute="top" id="ESa-Lz-MQL"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="5Bi-wn-Q9V" secondAttribute="bottom" id="Hwt-Ez-hdS"/>
+                <constraint firstItem="r1g-be-mcP" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="Lua-VI-VV2"/>
                 <constraint firstItem="CeB-yt-XOa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Nx3-5A-1uQ"/>
                 <constraint firstItem="CeB-yt-XOa" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="ZV4-tF-Suc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CeB-yt-XOa" secondAttribute="trailing" id="Zaz-nw-X3g"/>
                 <constraint firstItem="5Bi-wn-Q9V" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cVG-v3-xQg"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5Bi-wn-Q9V" secondAttribute="trailing" id="e5s-wh-OWa"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="r1g-be-mcP" secondAttribute="bottom" constant="10" id="oCF-Mw-8SD"/>
                 <constraint firstItem="CeB-yt-XOa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="obl-sS-b3o"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="53.600000000000001" y="48.125937031484263"/>
         </view>
     </objects>
 </document>

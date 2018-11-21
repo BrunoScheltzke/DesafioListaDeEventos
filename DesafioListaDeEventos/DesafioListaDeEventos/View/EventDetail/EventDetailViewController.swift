@@ -22,6 +22,8 @@ class EventDetailViewController: UIViewController {
     
     @IBOutlet weak var headerViewHeightConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var checkInButton: UIButton!
+    
     var viewModel: EventDetailViewModel!
     
     private let disposeBag = DisposeBag()
@@ -55,6 +57,7 @@ class EventDetailViewController: UIViewController {
     
     func bind(to viewModel: EventDetailViewModel) {
         loadViewIfNeeded()
+        self.viewModel = viewModel
         let dataSource = RxTableViewSectionedReloadDataSource<SectionOfDescription>(
             configureCell: { dataSource, tableView, indexPath, item in
                 switch item {
@@ -94,6 +97,50 @@ class EventDetailViewController: UIViewController {
             })
             .bind(to: headerImageView.rx.image)
             .disposed(by: disposeBag)
+        
+        checkInButton.rx.tap
+            .asObservable()
+            .subscribe(onNext: { [unowned self] _ in self.askForCheckInDetails() })
+            .disposed(by: disposeBag)
+    }
+    
+    func askForCheckInDetails() {
+        let alertController = UIAlertController(title: "CheckIn", message: "Preencha seus detalhes", preferredStyle: .alert)
+        
+        alertController.addTextField { textField in
+            textField.placeholder = "Nome"
+        }
+        
+        alertController.addTextField { textField in
+            textField.placeholder = "Email"
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        
+        let checkInAction = UIAlertAction(title: "Ok", style: .default) { [unowned self] action in
+            guard let nameTextField = alertController.textFields?[0],
+                let emailTextField = alertController.textFields?[1],
+                let name = nameTextField.text,
+                let email = emailTextField.text,
+                !name.isEmpty,
+                !email.isEmpty else {
+                    self.present(alertController, animated: true, completion: nil)
+                    return
+            }
+            self.view.lock()
+            self.viewModel.checkInAction.execute((name, email))
+                .subscribe(onNext: { [unowned self] _ in
+                    self.view.unlock()
+                    self.present(message: "Sucesso")
+                }, onError: { error in
+                    self.view.unlock()
+                    self.present(error: error)
+                }).disposed(by: self.disposeBag)
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(checkInAction)
+        present(alertController, animated: true, completion: nil)
     }
 }
 

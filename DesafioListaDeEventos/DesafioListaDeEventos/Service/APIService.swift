@@ -13,7 +13,7 @@ import Alamofire
 
 protocol APIServiceProtocol {
     func fetchEvents() -> Observable<Result<[Event]>>
-    func checkIn(_ event: Event, name: String, email: String) -> Observable<Result<Void>>
+    func checkIn(_ event: Event, name: String, email: String) -> Observable<Void>
     func fetchImage(of event: Event) -> Observable<UIImage>
     func fetchImage(of user: User) -> Observable<UIImage>
 }
@@ -47,17 +47,17 @@ final class APIService: APIServiceProtocol {
         }
     }
     
-    func checkIn(_ event: Event, name: String, email: String) -> Observable<Result<Void>> {
+    func checkIn(_ event: Event, name: String, email: String) -> Observable<Void> {
         let params = [
             APIKeys.eventId: event.id,
             APIKeys.name: name,
             APIKeys.email: email
         ]
         
-        return manager.rx.request(.post, "", parameters: params, encoding: JSONEncoding.default, headers: nil)
+        return manager.rx.request(.post, checkInPath, parameters: params, encoding: JSONEncoding.default, headers: nil)
                 .validate()
                 .observeOn(MainScheduler.instance)
-                .map { _ in .success(()) }
+                .map { _ in () }
     }
     
     func fetchImage(of event: Event) -> Observable<UIImage> {

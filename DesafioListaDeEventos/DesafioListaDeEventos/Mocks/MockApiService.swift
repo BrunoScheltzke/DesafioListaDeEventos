@@ -22,12 +22,8 @@ final class MockAPIService: APIServiceProtocol {
         }
     }
     
-    func checkIn(_ event: Event, name: String, email: String) -> Observable<Result<Void>> {
-        if shouldFailRequest {
-            return Observable.just(.failure(CustomError.internetConnection))
-        } else {
-            return Observable.just(.success(()))
-        }
+    func checkIn(_ event: Event, name: String, email: String) -> Observable<Void> {
+        return Observable.just(())
     }
     
     func fetchImage(of event: Event) -> Observable<UIImage> {

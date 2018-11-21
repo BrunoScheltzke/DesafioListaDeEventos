@@ -1,4 +1,7 @@
 PODS:
+  - Action (3.5.0):
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
   - Alamofire (4.7.3)
   - Differentiator (3.1.0)
   - RxAlamofire (4.3.0):
@@ -20,6 +23,7 @@ PODS:
     - RxAtomic (~> 4.4)
 
 DEPENDENCIES:
+  - Action
   - Alamofire
   - RxAlamofire
   - RxBlocking
@@ -29,6 +33,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Action
     - Alamofire
     - Differentiator
     - RxAlamofire
@@ -39,6 +44,7 @@ SPEC REPOS:
     - RxSwift
 
 SPEC CHECKSUMS:
+  Action: d60087ebce41b969d1afdad01e2fa1372a82f26e
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   RxAlamofire: 09624d0f2d48ed8b686e4eb4cf68e28cbd2df556
@@ -48,6 +54,6 @@ SPEC CHECKSUMS:
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
 
-PODFILE CHECKSUM: 6c9020ff1c48e4682b5aabec02016f8331496f0f
+PODFILE CHECKSUM: f101a21c46fbcb985c977cb3371b97e1e99fcec9
 
 COCOAPODS: 1.5.3

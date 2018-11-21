@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import Action
 
 struct EventDescription {
     let itemTitle: String
@@ -19,8 +20,12 @@ final class EventDetailViewModel {
     let eventImage: Observable<UIImage>
     let userCollectionViewModel: Observable<UserCollectionViewModel>
     
+    let checkInAction: Action<(name: String, email: String), Void>
+    
     private let apiService: APIServiceProtocol
     private let event: Observable<Event>
+    
+    private let disposeBag = DisposeBag()
     
     init(_ apiService: APIServiceProtocol, event: Event) {
         self.apiService = apiService
@@ -37,5 +42,9 @@ final class EventDetailViewModel {
         
         eventImage = apiService.fetchImage(of: event)
         userCollectionViewModel = self.event.map { UserCollectionViewModel(apiService: apiService, users: $0.people) }
+        
+        checkInAction = Action(workFactory: { input in
+            apiService.checkIn(event, name: input.name, email: input.email)
+        })
     }
 }
