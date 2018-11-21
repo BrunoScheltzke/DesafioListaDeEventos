@@ -14,13 +14,13 @@
 - [x] Mostrar detalhes do evento
 - [x] Listar pessoas
 - [x] Paralax animation
-- [ ] Mostrar mapa do local
-- [ ] Mostrar data do evento
-- [ ] Check In
+- [x] Mostrar mapa do local
+- [x] Mostrar data do evento
+- [x] Check In
 - [ ] Compartilhar evento
 - [ ] Testes unitarios
-- [ ] Tratamento de erros
-- [ ] Layout final da tela de eventos
-- [ ] Layout final da tela de detalhes do evento
-- [ ] Improve user experience by adding loading view on user images
-- [ ] Improve user experience by adding loading view on event list
+- [x] Tratamento de erros
+- [x] Layout final da tela de eventos
+- [x] Layout final da tela de detalhes do evento
+- [x] Improve user experience by adding loading view on user images
+- [x] Improve user experience by adding loading view on event list
