@@ -36,6 +36,7 @@ final class EventDetailViewModel {
             [
                 EventDescription(itemTitle: "", itemDescription: $0.title),
                 EventDescription(itemTitle: "Preço", itemDescription: $0.price.toBrazilianCurrency() ?? "\($0.price)"),
+                EventDescription(itemTitle: "Date", itemDescription: $0.date.toDate()),
                 EventDescription(itemTitle: "Detalhes", itemDescription: $0.description)
             ]
         }

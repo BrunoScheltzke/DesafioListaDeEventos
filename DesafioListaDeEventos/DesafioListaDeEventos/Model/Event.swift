@@ -15,4 +15,5 @@ struct Event: Decodable {
     let image: String
     let description: String
     let people: [User]
+    let date: Double
 }

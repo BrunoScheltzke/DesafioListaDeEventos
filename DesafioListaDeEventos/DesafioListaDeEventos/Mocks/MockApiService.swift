@@ -17,7 +17,7 @@ final class MockAPIService: APIServiceProtocol {
             return Observable.just(.failure(CustomError.internetConnection))
         } else {
             let user = User.init(id: "1", name: "James", picture: "userPlaceholder")
-            let event = Event.init(id: "1", title: "Title", price: 200, image: "eventPlaceholder", description: "Description", people: [user])
+            let event = Event.init(id: "1", title: "Title", price: 200, image: "eventPlaceholder", description: "Description", people: [user], date: 1534784400000)
             return Observable.just(.success([event]))
         }
     }
