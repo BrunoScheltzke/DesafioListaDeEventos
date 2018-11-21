@@ -44,6 +44,7 @@ class EventDetailViewController: UIViewController {
         
         tableView.register(type: EventDetailTableViewCell.self)
         tableView.register(type: UserCollectionTableViewCell.self)
+        tableView.register(type: MapTableViewCell.self)
         tableView.contentInset = UIEdgeInsets(top: headerViewDefaultHeight, left: 0, bottom: 0, right: 0)
         
         tableView.rx
@@ -58,6 +59,13 @@ class EventDetailViewController: UIViewController {
     func bind(to viewModel: EventDetailViewModel) {
         loadViewIfNeeded()
         self.viewModel = viewModel
+        
+        bindTableView()
+        bindHeaderImage()
+        bindCheckInButton()
+    }
+    
+    func bindTableView() {
         let dataSource = RxTableViewSectionedReloadDataSource<SectionOfDescription>(
             configureCell: { dataSource, tableView, indexPath, item in
                 switch item {
@@ -70,6 +78,16 @@ class EventDetailViewController: UIViewController {
                     let cell: UserCollectionTableViewCell = tableView.dequeueReusableCell(for: indexPath)
                     cell.bind(to: userCollectionVM)
                     return cell
+                case let .map(position):
+                    let cell: MapTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+                    let (latitude, longitude) = position
+                    
+                    if let latitude = latitude,
+                        let longitude = longitude {
+                        cell.setMap(latitude: latitude, longitude: longitude)
+                    }
+                    
+                    return cell
                 }
         })
         
@@ -81,23 +99,30 @@ class EventDetailViewController: UIViewController {
             return events.map { TableItem.eventDescription($0) }
             }.map { SectionOfDescription(header: "Detalhes do evento", items: $0) }
         
+        let mapSection = viewModel.location
+            .map { [TableItem.map($0)] }
+            .map { SectionOfDescription(header: "Mapa", items: $0) }
+        
         let userImagesSection = viewModel.userCollectionViewModel
             .map { [TableItem.userCollection($0)] }
             .map { SectionOfDescription(header: "Pessoas", items: $0) }
         
-        Observable.zip(descriptionSection, userImagesSection) { [$0, $1] }
+        Observable.zip(descriptionSection, mapSection, userImagesSection) { [$0, $1, $2] }
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
-        
+    }
+    
+    func bindHeaderImage() {
         headerImageView.lock()
-        
         viewModel.eventImage
             .do(onNext: { [unowned self] _ in
                 self.headerImageView.unlock()
             })
             .bind(to: headerImageView.rx.image)
             .disposed(by: disposeBag)
-        
+    }
+    
+    func bindCheckInButton() {
         checkInButton.rx.tap
             .asObservable()
             .subscribe(onNext: { [unowned self] _ in self.askForCheckInDetails() })
@@ -147,6 +172,7 @@ class EventDetailViewController: UIViewController {
 enum TableItem {
     case eventDescription(EventDescription)
     case userCollection(UserCollectionViewModel)
+    case map((latitude: Double?, longitude: Double?))
 }
 
 struct SectionOfDescription {

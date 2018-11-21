@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		424A506421A5D34F00C8D083 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A506321A5D34F00C8D083 /* UIView.swift */; };
 		424A506621A5DEEB00C8D083 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A506521A5DEEB00C8D083 /* UIViewController.swift */; };
+		424A506921A5F8D100C8D083 /* MapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A506721A5F8D100C8D083 /* MapTableViewCell.swift */; };
+		424A506A21A5F8D100C8D083 /* MapTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 424A506821A5F8D100C8D083 /* MapTableViewCell.xib */; };
+		424A506C21A5FBEB00C8D083 /* Event+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A506B21A5FBEB00C8D083 /* Event+Decodable.swift */; };
 		425A5C3D219AE2D00071D094 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425A5C3B219AE2D00071D094 /* EventListViewController.swift */; };
 		425A5C3E219AE2D00071D094 /* EventListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425A5C3C219AE2D00071D094 /* EventListViewController.xib */; };
 		425A5C43219AE33F0071D094 /* EventListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425A5C42219AE33F0071D094 /* EventListViewModel.swift */; };
@@ -69,6 +72,9 @@
 		3C31D238DF16AB5E64D8B4C7 /* Pods-DesafioListaDeEventosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioListaDeEventosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DesafioListaDeEventosTests/Pods-DesafioListaDeEventosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		424A506321A5D34F00C8D083 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		424A506521A5DEEB00C8D083 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		424A506721A5F8D100C8D083 /* MapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTableViewCell.swift; sourceTree = "<group>"; };
+		424A506821A5F8D100C8D083 /* MapTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapTableViewCell.xib; sourceTree = "<group>"; };
+		424A506B21A5FBEB00C8D083 /* Event+Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+Decodable.swift"; sourceTree = "<group>"; };
 		425A5C3B219AE2D00071D094 /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 		425A5C3C219AE2D00071D094 /* EventListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventListViewController.xib; sourceTree = "<group>"; };
 		425A5C42219AE33F0071D094 /* EventListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewModel.swift; sourceTree = "<group>"; };
@@ -166,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				42D71E61219A190A00228E7F /* APIService.swift */,
+				424A506B21A5FBEB00C8D083 /* Event+Decodable.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -223,6 +230,8 @@
 				4269CA34219C49F400F6C946 /* UserCollectionViewCell.xib */,
 				42710314219C852300B2633D /* EventDetailTableViewCell.swift */,
 				42710315219C852300B2633D /* EventDetailTableViewCell.xib */,
+				424A506721A5F8D100C8D083 /* MapTableViewCell.swift */,
+				424A506821A5F8D100C8D083 /* MapTableViewCell.xib */,
 			);
 			path = EventDetail;
 			sourceTree = "<group>";
@@ -458,6 +467,7 @@
 				425A5C3E219AE2D00071D094 /* EventListViewController.xib in Resources */,
 				42710317219C852300B2633D /* EventDetailTableViewCell.xib in Resources */,
 				42D9AE3D219A0F0800BC3946 /* LaunchScreen.storyboard in Resources */,
+				424A506A21A5F8D100C8D083 /* MapTableViewCell.xib in Resources */,
 				42D9AE3A219A0F0800BC3946 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -594,8 +604,10 @@
 				42D71E64219A1F8A00228E7F /* Event.swift in Sources */,
 				425A5C58219B0D930071D094 /* EventDetailViewModel.swift in Sources */,
 				4269CA31219C49AE00F6C946 /* UserCollectionTableViewCell.swift in Sources */,
+				424A506C21A5FBEB00C8D083 /* Event+Decodable.swift in Sources */,
 				425A5C3D219AE2D00071D094 /* EventListViewController.swift in Sources */,
 				4269CA2E219C462F00F6C946 /* User.swift in Sources */,
+				424A506921A5F8D100C8D083 /* MapTableViewCell.swift in Sources */,
 				4293F9BB219C2E7F00F043E5 /* Double.swift in Sources */,
 				424A506421A5D34F00C8D083 /* UIView.swift in Sources */,
 				425A5C43219AE33F0071D094 /* EventListViewModel.swift in Sources */,

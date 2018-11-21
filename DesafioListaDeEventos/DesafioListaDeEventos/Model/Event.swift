@@ -11,9 +11,11 @@ import Foundation
 struct Event: Decodable {
     let id: String
     let title: String
-    let price: Double
+    let price: String
     let image: String
     let description: String
     let people: [User]
-    let date: Double
+    let date: String
+    let latitude: Double?
+    let longitude: Double?
 }

@@ -22,6 +22,8 @@ final class EventDetailViewModel {
     
     let checkInAction: Action<(name: String, email: String), Void>
     
+    let location: Observable<(latitude: Double?, longitude: Double?)>
+    
     private let apiService: APIServiceProtocol
     private let event: Observable<Event>
     
@@ -35,8 +37,8 @@ final class EventDetailViewModel {
         eventDescription = self.event.map {
             [
                 EventDescription(itemTitle: "", itemDescription: $0.title),
-                EventDescription(itemTitle: "Preço", itemDescription: $0.price.toBrazilianCurrency() ?? "\($0.price)"),
-                EventDescription(itemTitle: "Date", itemDescription: $0.date.toDate()),
+                EventDescription(itemTitle: "Preço", itemDescription: $0.price),
+                EventDescription(itemTitle: "Date", itemDescription: $0.date),
                 EventDescription(itemTitle: "Detalhes", itemDescription: $0.description)
             ]
         }
@@ -44,8 +46,10 @@ final class EventDetailViewModel {
         eventImage = apiService.fetchImage(of: event)
         userCollectionViewModel = self.event.map { UserCollectionViewModel(apiService: apiService, users: $0.people) }
         
-        checkInAction = Action(workFactory: { input in
-            apiService.checkIn(event, name: input.name, email: input.email)
+        checkInAction = Action(workFactory: {
+            apiService.checkIn(event, name: $0.name, email: $0.email)
         })
+        
+        location = self.event.map { ($0.latitude, $0.longitude) }
     }
 }
