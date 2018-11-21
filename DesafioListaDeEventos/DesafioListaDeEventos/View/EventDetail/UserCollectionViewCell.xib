@@ -20,23 +20,29 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNJ-yO-fbc">
-                        <rect key="frame" x="0.0" y="123" width="147" height="17"/>
+                        <rect key="frame" x="0.0" y="70" width="147" height="70"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="43F-7W-wFW">
-                        <rect key="frame" x="24.5" y="0.0" width="98" height="98"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="43F-7W-wFW">
+                        <rect key="frame" x="38.5" y="0.0" width="70" height="70"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="43F-7W-wFW" secondAttribute="height" multiplier="1:1" id="Mzf-Z2-swZ"/>
+                            <constraint firstAttribute="height" constant="70" id="PDo-aF-yau"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="35"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="cNJ-yO-fbc" secondAttribute="trailing" id="0iN-XI-TrK"/>
                 <constraint firstItem="43F-7W-wFW" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="1uZ-As-WST"/>
-                <constraint firstItem="43F-7W-wFW" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.7" id="36n-fW-6sd"/>
+                <constraint firstItem="cNJ-yO-fbc" firstAttribute="top" secondItem="43F-7W-wFW" secondAttribute="bottom" id="GJO-TB-2St"/>
                 <constraint firstItem="43F-7W-wFW" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="ZFg-cT-7ln"/>
                 <constraint firstItem="cNJ-yO-fbc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="hDg-Ch-Wie"/>
                 <constraint firstAttribute="bottom" secondItem="cNJ-yO-fbc" secondAttribute="bottom" id="mjL-fz-Q5c"/>
@@ -50,7 +56,4 @@
             <point key="canvasLocation" x="215.19999999999999" y="195.20239880059972"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="userPlaceholder" width="600" height="600"/>
-    </resources>
 </document>

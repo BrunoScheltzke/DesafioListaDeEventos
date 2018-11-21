@@ -27,7 +27,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 </tableView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eventPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="CeB-yt-XOa">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CeB-yt-XOa">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="210" id="sqq-6O-NhA"/>
@@ -49,7 +49,4 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
-    <resources>
-        <image name="eventPlaceholder" width="719" height="305"/>
-    </resources>
 </document>

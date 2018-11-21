@@ -29,7 +29,7 @@ final class UserViewModel {
     init(apiService: APIServiceProtocol, user: User) {
         self.apiService = apiService
         
-        userImage = apiService.fetchImage(of: user)
+        userImage = apiService.fetchImage(of: user).share(replay: 1, scope: .forever)
         userName = Observable.just(user.name)
     }
 }

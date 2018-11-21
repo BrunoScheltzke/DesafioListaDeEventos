@@ -86,7 +86,12 @@ class EventDetailViewController: UIViewController {
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
+        headerImageView.lock()
+        
         viewModel.eventImage
+            .do(onNext: { [unowned self] _ in
+                self.headerImageView.unlock()
+            })
             .bind(to: headerImageView.rx.image)
             .disposed(by: disposeBag)
     }

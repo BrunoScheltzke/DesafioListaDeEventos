@@ -20,18 +20,19 @@ class UserCollectionViewCell: UICollectionViewCell {
     }
     
     func bind(to viewModel: UserViewModel) {
+        userImageView.lock()
+        
         viewModel.userImage
+            .do(onNext: { [weak self] _ in
+                guard let strongSelf = self else { return }
+                strongSelf.userImageView.unlock()
+            })
             .bind(to: userImageView.rx.image)
             .disposed(by: disposeBag)
         
         viewModel.userName
             .bind(to: userNameLabel.rx.text)
             .disposed(by: disposeBag)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        userImageView.layer.cornerRadius = userImageView.frame.height/2
     }
     
     override func prepareForReuse() {

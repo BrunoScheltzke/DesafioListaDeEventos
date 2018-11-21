@@ -35,7 +35,13 @@ class EventListViewController: UIViewController {
     func bind(to viewModel: EventListViewModel) {
         loadViewIfNeeded()
         self.viewModel = viewModel
-        viewModel.eventsViewModel.bind(to: tableView.rx.items(cellIdentifier: EventTableViewCell.reuseIdentifier)) { _, viewModel, cell in
+        
+        self.view.lock()
+        viewModel.eventsViewModel
+            .do(onNext: { [unowned self] _ in
+                self.view.unlock()
+                })
+            .bind(to: tableView.rx.items(cellIdentifier: EventTableViewCell.reuseIdentifier)) { _, viewModel, cell in
             guard let cell = cell as? EventTableViewCell else { return }
             cell.bindTo(viewModel)
         }.disposed(by: disposeBag)
