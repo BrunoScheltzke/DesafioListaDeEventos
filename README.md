@@ -17,7 +17,7 @@
 - [x] Mostrar mapa do local
 - [x] Mostrar data do evento
 - [x] Check In
-- [ ] Compartilhar evento
+- [x] Compartilhar evento
 - [ ] Testes unitarios
 - [x] Tratamento de erros
 - [x] Layout final da tela de eventos
