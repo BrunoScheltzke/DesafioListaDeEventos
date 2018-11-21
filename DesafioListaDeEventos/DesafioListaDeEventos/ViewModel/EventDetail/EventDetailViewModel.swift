@@ -24,6 +24,8 @@ final class EventDetailViewModel {
     
     let location: Observable<(latitude: Double?, longitude: Double?)>
     
+    var eventShareText: String
+    
     private let apiService: APIServiceProtocol
     private let event: Observable<Event>
     
@@ -51,5 +53,6 @@ final class EventDetailViewModel {
         })
         
         location = self.event.map { ($0.latitude, $0.longitude) }
+        eventShareText = "http://5b840ba5db24a100142dcd8c.mockapi.io/api/events/" + event.id
     }
 }

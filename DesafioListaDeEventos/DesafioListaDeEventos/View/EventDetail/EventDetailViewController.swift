@@ -36,6 +36,18 @@ class EventDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        setupShareButton()
+    }
+    
+    func setupShareButton() {
+        let shareButton = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: #selector(shareEvent))
+        navigationItem.rightBarButtonItem = shareButton
+    }
+    
+    @objc func shareEvent() {
+        let activityViewController = UIActivityViewController(activityItems: [viewModel.eventShareText], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
     }
     
     func setupTableView() {
