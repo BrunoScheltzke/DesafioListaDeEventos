@@ -36,14 +36,14 @@ final class EventDetailViewModel {
         self.event = Observable.just(event)
         eventDescription = self.event.map {
             [
-                EventDescription(itemTitle: "", itemDescription: $0.title),
+                EventDescription(itemTitle: "Nome", itemDescription: $0.title),
                 EventDescription(itemTitle: "Preço", itemDescription: $0.price),
-                EventDescription(itemTitle: "Date", itemDescription: $0.date),
+                EventDescription(itemTitle: "Data", itemDescription: $0.date),
                 EventDescription(itemTitle: "Detalhes", itemDescription: $0.description)
             ]
         }
         
-        eventImage = apiService.fetchImage(of: event)
+        eventImage = apiService.fetchImage(of: event).share(replay: 1, scope: .forever)
         userCollectionViewModel = self.event.map { UserCollectionViewModel(apiService: apiService, users: $0.people) }
         
         checkInAction = Action(workFactory: {
